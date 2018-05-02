@@ -69,18 +69,18 @@ CREATE TABLE GoUt.tarif
 
 CREATE TABLE GoUt.categorie
 (
-	`id` INT PRIMARY KEY NOT NULL UNIQUE,
 	`id_event` INT NOT NULL,
 	`id_data_categorie` INT NOT NULL,
+	PRIMARY KEY(id_event, id_data_categorie),
 	FOREIGN KEY(id_event) REFERENCES event(id) ON DELETE CASCADE,
 	FOREIGN KEY(id_data_categorie) REFERENCES data_categorie(id) ON DELETE CASCADE
 )ENGINE = InnoDB;
 
 CREATE TABLE GoUt.clientele
 (
-	`id` INT PRIMARY KEY NOT NULL UNIQUE,
 	`id_event` INT NOT NULL,
 	`id_data_clientele` INT NOT NULL,
+    PRIMARY KEY(id_event, id_data_clientele),
 	FOREIGN KEY(id_event) REFERENCES event(id) ON DELETE CASCADE,
 	FOREIGN KEY(id_data_clientele) REFERENCES data_clientele(id) ON DELETE CASCADE
 )ENGINE = InnoDB;
